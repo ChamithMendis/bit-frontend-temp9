@@ -1,0 +1,99 @@
+<div class="auth-main">
+  <div class="auth-wrapper v3">
+    <form class="auth-form" [formGroup]="registerForm" (ngSubmit)="onSubmitRegister()">
+      <div class="card mt-5">
+        <div class="card-body">
+          <a href="javascript:" class="d-flex justify-content-center mt-3">
+            <img src="assets/images/logo-dark.svg" />
+          </a>
+          <div class="row">
+            <div class="d-flex justify-content-center">
+              <div class="auth-header">
+                <h2 class="text-secondary mt-5"><b>Sign up</b></h2>
+                <p class="fs-4 mt-2">Enter your credentials to continue</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="firstName" />
+                <label for="floatingInput">First Name</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="lastName" />
+                <label for="floatingInput">Last Name</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <span
+                class="text-danger"
+                *ngIf="
+                  (formControl['firstName'].touched || submitted) &&
+                  formControl['firstName'].errors &&
+                  formControl['firstName'].errors['required']
+                "
+              >
+                First name is required
+              </span>
+            </div>
+            <div class="col-md-6">
+              <span
+                class="text-danger"
+                *ngIf="
+                  (formControl['lastName'].touched || submitted) &&
+                  formControl['lastName'].errors &&
+                  formControl['lastName'].errors['required']
+                "
+              >
+                Last name is required
+              </span>
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="login" />
+            <label for="floatingInput">Username</label>
+          </div>
+          <span
+            class="text-danger"
+            *ngIf="(formControl['login'].touched || submitted) && formControl['login'].errors && formControl['login'].errors['required']"
+          >
+            User name is required
+          </span>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="password" />
+            <label for="floatingInput">Password</label>
+          </div>
+          <span
+            class="text-danger"
+            *ngIf="
+              (formControl['password'].touched || submitted) && formControl['password'].errors && formControl['password'].errors['required']
+            "
+          >
+            Password is required
+          </span>
+          <div class="form-check mt-3s">
+            <input class="form-check-input input-primary" type="checkbox" id="customCheckc1" checked="" />
+            <label class="form-check-label" for="customCheckc1">
+              <h5>
+                Agree with
+                <span>Terms & Condition.</span>
+              </h5>
+            </label>
+          </div>
+          <div class="d-grid mt-4">
+            <button type="submit" class="btn btn-secondary p-2">Sign Up</button>
+          </div>
+          <hr />
+          <h5 class="d-flex justify-content-center">
+            <a [routerLink]="['/guest/login']">Already have an account?</a>
+          </h5>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
